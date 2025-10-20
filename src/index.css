@@ -1,19 +1,372 @@
+/* =========================================================
+   Tailwind Directives
+=========================================================*/
+@import './styles/theme.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+/* =========================================================
+   GLOBAL THEME: Cyan "Printed Paper" Aesthetic
+=========================================================*/
+:root {
+  --paper: #f3f7f8;           /* light cyan-tinted paper tone */
+  --ink: #111111;             /* deep ink black */
+  --ink-faded: #2b2b2b;       /* softened ink for paragraphs */
+  --accent: #2b49c2;          /* blue ink accent (vintage pen) */
+  --paper-accent: #78e6dd;    /* base cyan background */
+  --paper-shadow: rgba(0, 0, 0, 0.08);
+}
+
 body {
-  @apply bg-paper text-paper-ink antialiased;
+  @apply antialiased text-[17px];
+  font-family: "EB Garamond", "Georgia", serif;
+  color: var(--ink-faded);
+  background-color: var(--paper-accent);
   background-image:
-    radial-gradient(rgba(0,0,0,0.035) 1px, transparent 1px),
-    linear-gradient(transparent, transparent 12px, rgba(0,0,0,0.02) 13px);
-  background-size: 18px 18px, 100% 13px;
+    radial-gradient(rgba(76, 175, 166, 0.08) 1px, transparent 1px),
+    linear-gradient(transparent, transparent 18px, rgba(76, 175, 166, 0.05) 19px);
+  background-size: 22px 22px, 100% 19px;
+  background-attachment: fixed;
+  background-blend-mode: multiply;
 }
-.hdr { @apply font-serif tracking-wide; }
+
+/* =========================================================
+   TYPOGRAPHY
+=========================================================*/
+.hdr {
+  @apply font-serif tracking-wide text-[1.1em];
+  color: var(--ink);
+  font-weight: 600;
+}
+
+p, li {
+  color: var(--ink-faded);
+  line-height: 1.75;
+}
+
 .dropcap p:first-of-type::first-letter {
-  float: left; font-size: 3.5rem; line-height: 1; padding-right: .25rem; padding-top: .25rem;
-  font-weight: 600; font-family: "EB Garamond", serif;
+  float: left;
+  font-size: 3.5rem;
+  line-height: 1;
+  padding-right: 0.3rem;
+  padding-top: 0.3rem;
+  font-weight: 600;
+  font-family: "EB Garamond", serif;
+  color: var(--ink);
 }
-a { text-decoration-color: rgba(0,0,0,0.25); text-underline-offset: 3px; }
-a:hover { text-decoration-color: rgba(0,0,0,0.55); }
-hr.rule { border: none; height: 1px; background: linear-gradient(90deg, transparent, rgba(0,0,0,0.25), transparent); }
+
+/* Links */
+a {
+  text-decoration-color: rgba(0, 0, 0, 0.25);
+  text-underline-offset: 3px;
+  color: var(--accent);
+  transition: color 0.2s ease, text-decoration-color 0.3s ease;
+}
+a:hover {
+  color: #1c2f93;
+  text-decoration-color: rgba(0, 0, 0, 0.55);
+}
+
+/* Horizontal rule */
+hr.rule {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.25), transparent);
+  margin: 4rem 0;
+}
+
+/* =========================================================
+   IMAGES (Hero + Poster)
+=========================================================*/
+img[alt="Microenvironment illustration"],
+img[alt="Poster"] {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  mix-blend-mode: multiply;
+  transition: transform 0.6s ease, opacity 0.5s ease;
+}
+
+img[alt="Microenvironment illustration"]:hover,
+img[alt="Poster"]:hover {
+  transform: scale(1.015);
+  opacity: 0.96;
+}
+
+.rounded-2xl, .rounded-3xl {
+  border-radius: 1.25rem !important;
+}
+
+.shadow-soft {
+  box-shadow: 0 10px 25px var(--paper-shadow);
+}
+
+/* =========================================================
+   SECTIONS + LAYOUT
+=========================================================*/
+section, div[class*="my-"] {
+  scroll-margin-top: 120px;
+}
+
+.max-w-6xl {
+  @apply mx-auto;
+}
+
+/* =========================================================
+   HEADER + FOOTER UNITY
+=========================================================*/
+header, footer {
+  background-color: rgba(243, 247, 248, 0.8);
+  backdrop-filter: blur(8px);
+  color: var(--ink);
+  box-shadow: 0 -2px 30px rgba(0, 0, 0, 0.04) inset;
+}
+
+/* Unified container */
+header > div,
+footer > div:first-child {
+  max-width: 72rem; /* matches max-w-6xl */
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Footer refinement */
+footer {
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(transparent, transparent 18px, rgba(255, 255, 255, 0.06) 19px);
+  background-size: 22px 22px, 100% 19px;
+  background-attachment: fixed;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--ink-faded);
+}
+
+footer h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: var(--ink);
+}
+
+footer p, footer li, footer a {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-faded);
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  margin-bottom: 0.25rem;
+}
+
+/* Bottom copyright strip */
+footer .bottom-bar {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 1.25rem 0;
+  font-size: 0.9rem;
+  color: rgba(26, 26, 26, 0.7);
+}
+
+/* =========================================================
+   LAB MEMBERS / PUBLICATIONS SHARED STYLE
+=========================================================*/
+.glass-card {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(5px);
+  border-radius: 1rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.glass-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Section headers */
+.section-header {
+  text-align: center;
+  margin: 5rem 0 3rem;
+}
+.section-header h2 {
+  font-family: "EB Garamond", serif;
+  font-size: 2.2rem;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.section-header p {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* =========================================================
+   PRINT SETTINGS
+=========================================================*/
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  a { color: black; text-decoration: underline; }
+  header, footer { display: none; }
+}
+
+/* =========================================================
+   RESPONSIVE
+=========================================================*/
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    background-size: 18px 18px, 100% 16px;
+  }
+  .hdr { font-size: 1.05em; }
+}
+/* =========================================================
+   FUNDING & COLLABORATIONS SECTION
+=========================================================*/
+
+.funding-section {
+  position: relative;
+  padding: 7rem 1rem 6rem;
+  background: radial-gradient(circle at 50% 35%, rgba(120, 230, 221, 0.12), transparent 70%);
+  overflow: hidden;
+}
+
+/* Gentle moving ink-like dots for depth */
+.funding-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(43, 73, 194, 0.05) 1px, transparent 1px),
+    radial-gradient(rgba(43, 73, 194, 0.05) 1px, transparent 1px);
+  background-size: 80px 80px, 120px 120px;
+  opacity: 0.45;
+  animation: drift 90s linear infinite;
+  z-index: 1;
+}
+
+@keyframes drift {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 300px 500px, 500px 300px; }
+}
+
+.funding-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Title styling consistent with SectionHeader */
+.funding-section .section-header h2 {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--ink);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.funding-section p {
+  color: rgba(17, 17, 17, 0.8);
+  line-height: 1.8;
+}
+
+/* --- Grid Layout --- */
+.funding-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.funding-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Section Subheadings --- */
+.funding-header {
+  color: var(--accent);
+  font-family: "EB Garamond", serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  margin-bottom: 1.8rem;
+  text-align: center;
+}
+
+/* --- List Items --- */
+.funding-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.funding-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 1rem;
+  padding: 0.9rem 1.3rem;
+  width: 100%;
+  max-width: 340px;
+  font-size: 1rem;
+  color: var(--ink-faded);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(7px);
+  transition: all 0.35s ease;
+  transform-origin: center;
+}
+
+.funding-item:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.65);
+}
+
+/* --- Logos --- */
+.funding-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08)) brightness(1.05);
+  transition: transform 0.4s ease;
+}
+
+.funding-item:hover .funding-logo {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .funding-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .funding-grid {
+    gap: 2rem;
+  }
+
+  .funding-item {
+    max-width: 100%;
+  }
+
+  .funding-header {
+    font-size: 1.15rem;
+  }
+}

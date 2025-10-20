@@ -1,0 +1,129 @@
+.thesis-page {
+    background-color: #78e6dd;
+    background-image:
+      radial-gradient(rgba(76, 175, 166, 0.08) 1px, transparent 1px),
+      linear-gradient(transparent, transparent 18px, rgba(76, 175, 166, 0.05) 19px);
+    background-size: 22px 22px, 100% 19px;
+    background-attachment: fixed;
+    font-family: "EB Garamond", "Georgia", serif;
+    color: #2b2b2b;
+    padding: 5rem 1rem 4rem;
+    line-height: 1.7;
+  }
+  
+  /* --- Intro Section --- */
+  .page-intro {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 3rem;
+  }
+  
+  .page-intro .hdr {
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #1f1f1f;
+  }
+  
+  .intro-text {
+    font-size: 1.15rem;
+    color: rgba(30, 30, 30, 0.85);
+    margin-top: 0.75rem;
+  }
+  
+  /* --- Filter Dropdown --- */
+  .year-filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin: 2rem 0 3rem;
+  }
+  
+  .year-label {
+    font-size: 1rem;
+    color: #1f1f1f;
+    font-family: "EB Garamond", serif;
+    font-weight: 600;
+  }
+  
+  .year-select {
+    font-family: "EB Garamond", serif;
+    font-size: 1rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    color: #1f1f1f;
+    outline: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(6px);
+  }
+  
+  .year-select:hover,
+  .year-select:focus {
+    background: rgba(255, 255, 255, 0.65);
+    border-color: rgba(0, 0, 0, 0.25);
+  }
+  
+  /* --- Theses List --- */
+  .publications-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 20px;
+    padding: 1.75rem 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .glass-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pub-index {
+    font-weight: 700;
+    color: #1f1f1f;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .pub-title {
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: #1a1a1a;
+    line-height: 1.45;
+    margin-bottom: 0.35rem;
+  }
+  
+  .pub-authors {
+    font-size: 0.97rem;
+    color: rgba(43, 43, 43, 0.85);
+    margin-bottom: 0.25rem;
+  }
+  
+  .pub-journal {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: rgba(30, 30, 30, 0.8);
+  }
+  
+  /* --- Responsive --- */
+  @media (max-width: 768px) {
+    .glass-card {
+      padding: 1.4rem 1.5rem;
+    }
+    .pub-title {
+      font-size: 1.05rem;
+    }
+  }
+  

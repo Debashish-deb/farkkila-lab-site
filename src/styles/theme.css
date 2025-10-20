@@ -1,0 +1,199 @@
+/* =========================================
+   GLOBAL THEME — Färkkilä Lab Newspaper Aesthetic
+   ========================================= */
+
+   :root {
+    /* Harmonized colors */
+    --paper: #e3f4f4;            /* soft cyan paper base */
+    --ink: #1a1a1a;              /* deep black ink */
+    --ink-faded: rgba(26, 26, 26, 0.8);
+    --accent: #2b49c2;           /* classic dark blue ink */
+    --glass: rgba(255, 255, 255, 0.25);
+    --paper-shadow: rgba(0, 0, 0, 0.08);
+  }
+  
+  body {
+    font-family: "EB Garamond", "Georgia", serif;
+    background-color: var(--paper);
+    color: var(--ink-faded);
+    line-height: 1.75;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  
+    /* paper texture effect */
+    background-image:
+      radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(transparent, transparent 18px, rgba(255, 255, 255, 0.06) 19px);
+    background-size: 22px 22px, 100% 19px;
+    background-attachment: fixed;
+    background-blend-mode: multiply;
+  }
+  
+  /* ------------------------------------------
+     TEXT & LINKS
+  ------------------------------------------- */
+  .hdr {
+    font-family: "EB Garamond", serif;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.015em;
+  }
+  
+  p, li {
+    color: var(--ink-faded);
+  }
+  
+  a {
+    color: var(--accent);
+    text-decoration-color: rgba(0, 0, 0, 0.25);
+    text-underline-offset: 3px;
+    transition: color 0.25s ease, text-decoration-color 0.25s ease;
+  }
+  a:hover {
+    color: #1f3b94;
+    text-decoration-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  /* ------------------------------------------
+     HEADER & FOOTER UNITY
+  ------------------------------------------- */
+  header, footer {
+    background: rgba(227, 244, 244, 0.92);
+    backdrop-filter: blur(6px);
+    color: var(--ink);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.04);
+  }
+  
+  footer {
+    font-size: 0.9rem;
+  }
+  
+  /* ------------------------------------------
+     UNIVERSAL COMPONENTS
+  ------------------------------------------- */
+  .glass-card {
+    background: var(--glass);
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 10px 25px var(--paper-shadow);
+    backdrop-filter: blur(6px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .glass-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Hero/Poster consistency */
+  img[alt="Microenvironment illustration"],
+  img[alt="Poster"] {
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+    mix-blend-mode: multiply;
+    transition: transform 0.5s ease, opacity 0.4s ease;
+  }
+  img[alt="Microenvironment illustration"]:hover,
+  img[alt="Poster"]:hover {
+    transform: scale(1.015);
+    opacity: 0.96;
+  }
+  
+  /* Section headers */
+  .section-header {
+    text-align: center;
+    margin: 5rem 0 3rem;
+  }
+  .section-header h2 {
+    font-family: "EB Garamond", serif;
+    font-size: 2.2rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .section-header p {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  /* ------------------------------------------
+     PRINT-FRIENDLY SETTINGS
+  ------------------------------------------- */
+  @media print {
+    body {
+      background: white !important;
+      color: black !important;
+    }
+    header, footer {
+      display: none !important;
+    }
+    a {
+      color: black;
+      text-decoration: underline;
+    }
+  }
+  
+  /* =========================================
+   BALANCED FOOTER — PRINTED LAYOUT STYLE
+   ========================================= */
+.footer-balanced {
+  background: rgba(227, 244, 244, 0.85);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.04);
+  color: var(--ink-faded);
+  font-family: "EB Garamond", serif;
+  padding: 1.8rem 1.5rem;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-left {
+  font-size: 0.95rem;
+  color: var(--ink);
+  opacity: 0.9;
+}
+
+.footer-right {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-right a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(0, 0, 0, 0.25);
+  transition: color 0.2s ease;
+}
+
+.footer-right a:hover {
+  color: #1f3b94;
+  text-decoration-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+
+  .footer-right {
+    justify-content: center;
+    gap: 1rem;
+  }
+}

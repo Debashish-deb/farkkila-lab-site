@@ -1,0 +1,203 @@
+/* === Global Color Harmony === */
+
+  /* Page shell */
+.lab-members-page {
+    --paper: #6ec3c9;
+    --ink: #1a1a1a;
+    --ink-muted: rgba(26, 26, 26, 0.85);
+    --glass: rgba(255, 255, 255, 0.22);
+  
+    color: var(--ink);
+    padding-bottom: 4rem;
+  }
+  
+  /* Top cover band (subtle, no hard borders) */
+  .members-cover {
+    background: var(--paper);
+    background-image:
+      radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+      linear-gradient(transparent, transparent 16px, rgba(255,255,255,0.06) 17px);
+    background-size: 22px 22px, 100% 17px;
+    background-attachment: fixed;
+  
+    padding: 4.5rem 1rem 3.5rem;
+    display: grid;
+    place-items: center;
+  }
+  
+  .cover-overlay h1 {
+    font-family: "EB Garamond", serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: 0.02em;
+    color: var(--ink);
+  }
+  
+  /* Content container */
+  .members-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.25rem 1rem;
+  }
+  
+  /* Section blocks */
+  .member-category {
+    margin-top: 3rem;
+  }
+  
+  .member-category > h2 {
+    font-family: "EB Garamond", serif;
+    font-size: clamp(1.6rem, 2.4vw, 2rem);
+    text-align: center;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+  }
+  
+  /* Grid of current members */
+  .members-grid {
+    display: grid;
+    gap: 1.6rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+  
+  /* Member card (soft glass over cyan paper; no visible solid borders) */
+  .member-card.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(4px);
+    border-radius: 18px;
+    padding: 1.25rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  }
+  
+  /* Emphasize PI slightly */
+  .pi-card {
+    transform: translateZ(0);
+    outline: 1px solid rgba(0,0,0,0.05);
+  }
+  
+  /* Image frame */
+  .member-image-container {
+    display: grid;
+    place-items: center;
+    margin-bottom: 0.9rem;
+  }
+  
+  .image-placeholder {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.12);
+    background: rgba(255, 255, 255, 0.28);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+  }
+  
+  .image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: multiply; /* blends edges into cyan paper */
+  }
+  
+  /* Text */
+  .member-info {
+    text-align: center;
+  }
+  
+  .member-info h3 {
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+    color: var(--ink);
+  }
+  
+  .member-role {
+    font-size: 0.95rem;
+    color: rgba(26,26,26,0.75);
+    margin-bottom: 0.5rem;
+  }
+  
+  .member-bio {
+    font-size: 0.93rem;
+    line-height: 1.6;
+    color: var(--ink-muted);
+    text-align: justify;
+  }
+  
+  /* Alumni */
+  .alumni-container {
+    margin-top: 1.5rem;
+  }
+  
+  .alumni-section + .alumni-section {
+    margin-top: 1.25rem;
+  }
+  
+  .alumni-section > h3 {
+    text-align: center;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+  
+  .alumni-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  .alumni-card {
+    background: var(--glass);
+    border-radius: 16px;
+    padding: 1rem 1.1rem;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+  }
+  
+  .alumni-info h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  
+  .alumni-focus {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--ink-muted);
+  }
+  
+  /* Join us */
+  .join-us-section {
+    margin-top: 2.5rem;
+    padding: 1.25rem 1.4rem;
+    border-radius: 18px;
+    background: var(--glass);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+  }
+  
+  .join-us-section h2 {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+  
+  .join-us-section p {
+    text-align: center;
+    color: var(--ink-muted);
+  }
+  
+  .join-us-section a {
+    color: #213a9a;
+    text-underline-offset: 3px;
+  }
+  
+  /* Responsive spacing */
+  @media (min-width: 768px) {
+    .members-container {
+      padding: 2.75rem 1.25rem;
+    }
+    .member-category {
+      margin-top: 3.5rem;
+    }
+  }
+  

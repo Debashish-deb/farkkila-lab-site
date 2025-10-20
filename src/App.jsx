@@ -1,14 +1,18 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
-import { AnimatePresence, motion } from 'framer-motion'
-import Layout from './components/Layout.jsx'
-import Home from './pages/Home.jsx'
-import Members from './pages/Members.jsx'
-import Publications from './pages/Publications.jsx'
-import Contact from './pages/Contact.jsx'
-import NotFound from './pages/NotFound.jsx'
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 
-export default function App(){
-  const location = useLocation()
+// Layout and pages
+import Layout from './components/Layout.jsx';
+import Home from './pages/Home.jsx';
+import Members from './pages/Members.jsx';
+import Publications from './pages/Publications.jsx';
+import Thesis from './pages/thesis.jsx';
+import Contact from './pages/Contact.jsx';
+import NotFound from './pages/NotFound.jsx';
+
+export default function App() {
+  const location = useLocation();
+
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -16,18 +20,19 @@ export default function App(){
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.35, ease: "easeOut" }}
+        transition={{ duration: 0.35, ease: 'easeOut' }}
       >
         <Routes location={location}>
-          <Route element={<Layout/>}>
-            <Route path="/" element={<Home/>} />
-            <Route path="/members" element={<Members/>} />
-            <Route path="/publications" element={<Publications/>} />
-            <Route path="/contact" element={<Contact/>} />
-            <Route path="*" element={<NotFound/>} />
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/members" element={<Members />} />
+            <Route path="/publications" element={<Publications />} />
+            <Route path="/publications/thesis" element={<Thesis />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </motion.div>
     </AnimatePresence>
-  )
+  );
 }

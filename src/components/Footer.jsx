@@ -1,27 +1,27 @@
-export default function Footer(){
+export default function Footer() {
   return (
-    <footer className="mt-16 border-t border-black/10 bg-paper/80">
-      <div className="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8 text-sm">
-        <div>
-          <h4 className="hdr text-lg mb-2">Färkkilä Lab</h4>
-          <p>Understanding tumor microenvironment dynamics in high-grade serous ovarian cancer.</p>
-        </div>
-        <div>
-          <h4 className="hdr text-lg mb-2">Contact</h4>
-          <p>Helsinki, Finland</p>
-          <p>email@example.org</p>
-        </div>
-        <div>
-          <h4 className="hdr text-lg mb-2">Quick links</h4>
-          <ul className="space-y-1 underline">
-            <li><a href="/">Home</a></li>
-            <li><a href="/members">Lab Members</a></li>
-            <li><a href="/publications">Publications</a></li>
-            <li><a href="/contact">Contacts</a></li>
-          </ul>
+    <footer className="footer-balanced">
+      <div className="footer-inner">
+        <p className="footer-left">
+          © {new Date().getFullYear()} Färkkilä Lab — All rights reserved.
+        </p>
+        <div className="footer-right">
+          <a
+            href="https://github.com/farkkilab"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://wiki.helsinki.fi/xwiki/bin/login/XWiki/XWikiLogin?srid=nIcMvTO7&xredirect=%2Fxwiki%2Fbin%2Fview%2FFL%2FFarkkila%2520Lab%2F%3Fsrid%3DnIcMvTO7"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Wiki
+          </a>
         </div>
       </div>
-      <div className="text-center text-xs py-4 border-t border-black/10">© {new Date().getFullYear()} Färkkilä Lab</div>
     </footer>
-  )
+  );
 }
